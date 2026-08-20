@@ -92,10 +92,6 @@ func NewIncusProvider(configFile, controllerID string) (execution.ExternalProvid
 		return nil, errors.Wrap(err, "validating provider config")
 	}
 
-	if len(cfg.ImageRemotes) == 0 {
-		return nil, fmt.Errorf("no image remotes configured")
-	}
-
 	provider := &Incus{
 		cfg:          cfg,
 		controllerID: controllerID,
